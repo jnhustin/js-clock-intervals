@@ -1,7 +1,8 @@
 #clock {
 }
 
-#clock img {
+#face {
+	z-index: -1;
 }
 
 #hour {
@@ -11,4 +12,8 @@
 }
 
 #second {
+
+}
+.position {
+	position: absolute;
 }
