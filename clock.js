@@ -5,8 +5,6 @@ document.addEventListener("DOMContentLoaded", function() {
 	var hourHand = document.getElementById('hour');
 	var seconds = 55;
 	var minutes = 58;
-	var hours = 5;
-	var secsDegree = 0;
 	
 	minuteUpdate();
 	hourUpdate();
@@ -17,11 +15,12 @@ document.addEventListener("DOMContentLoaded", function() {
 
 
 	function hourUpdate() {
+		var hours = 5;
 		var hourRotation = (5 / 12) * 360;
 		hourHand.style.transform = 'rotate(' + hourRotation + 'deg)';
 		
 		if (minutes === 0) {
-			hour++;
+			hour += 1;
 			hour %= 24;
 		}
 	}
@@ -29,15 +28,15 @@ document.addEventListener("DOMContentLoaded", function() {
 		var minsRotation = (minutes * 6)% 360;
 		minsHand.style.transform = 'rotate(' + minsRotation + 'deg)';
 		if (seconds === 0) {
-			minutes++;
+			minutes += 1;
 			minutes %= 60;
 			console.log(minutes);
 		}
 	}
 	function secondsRotation() {
-		secsDegree = (seconds / 60) * 360 % 360;
+		var secsDegree = (seconds / 60) * 360 % 360;
 		secondsHand.style.transform = 'rotate(' + secsDegree + 'deg)';
-		seconds++;
+		seconds += 1;
 		seconds %= 60;
 	}
 	function checkUpdates() {
