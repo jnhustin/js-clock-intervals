@@ -8,7 +8,7 @@ document.addEventListener("DOMContentLoaded", function() {
 	var today = new Date();
 	var secs  = today.getSeconds();
 	var mins  = today.getMinutes();
-	var hours = (today.getHours()) % 12;
+	var hours = (today.getHours()) % 13;
 	
 	// set correct time per variables and updates every 1 second
 	correctStartTimes();
