@@ -5,8 +5,8 @@ document.addEventListener("DOMContentLoaded", function() {
 	var secsHand = document.getElementById('second');
 	var minsHand = document.getElementById('minute');
 	var hourHand = document.getElementById('hour');
-	var secs  = 58;
-	var mins  = 59;
+	var secs  = 0;
+	var mins  = 0;
 	var hours = 0;
 	
 	// set correct time per variables and updates every 1 second
