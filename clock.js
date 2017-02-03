@@ -3,18 +3,22 @@ document.addEventListener("DOMContentLoaded", function() {
 	var secondsHand = document.getElementById('second');
 	var minsHand = document.getElementById('minute');
 	var hourHand = document.getElementById('hour');
-	var seconds = 0;
-	var minutes = 45;
+	var seconds = 50;
+	var minutes = 3;
 	var hours = 0;
 	var secsDegree = 0;
+	
 	setInterval(secondsRotation, 1000);
+	setInterval(minuteUpdate, 1000);
 
-	if (secsDegree === 0) {
-		var minsRotation = (minutes * 6) % 360;
-		minutes++;
-		minutes %= 60;
-		minsHand.style.transform = 'rotate(' + minsRotation + 'deg)';
+	function minuteUpdate() {
+		if (secsDegree === 0) {
+			var minsRotation = (minutes * 6) % 360;
+			minutes++;
+			minutes %= 60;
+			minsHand.style.transform = 'rotate(' + minsRotation + 'deg)';
 
+		}
 	}
 
 	function secondsRotation() {
