@@ -8,7 +8,7 @@ document.addEventListener("DOMContentLoaded", function() {
 	var today = new Date();
 	var secs  = today.getSeconds();
 	var mins  = today.getMinutes();
-	var hours = today.getHours();
+	var hours = (today.getHours()) % 12;
 	
 	// set correct time per variables and updates every 1 second
 	correctStartTimes();
@@ -48,10 +48,3 @@ document.addEventListener("DOMContentLoaded", function() {
 		secsRotation();
 	}
 });
-
-
-
-
-
-
-
