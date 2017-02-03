@@ -1,32 +1,39 @@
 document.addEventListener("DOMContentLoaded", function() {
 	console.log("All DOM content has been loaded.");
+	
+	// global variable declarations
 	var secsHand = document.getElementById('second');
 	var minsHand = document.getElementById('minute');
 	var hourHand = document.getElementById('hour');
 	var secs = 55;
-	var minutes = 59;
-	
-	minuteUpdate();
-	hourUpdate();
+	var mins = 59;
+	var hours = 9;
 
+	console.log("hours at start: ", hours);
+	
+	// set correct time per variables and updates every 1 second
+	correctStartTimes();
 	setInterval(checkUpdates, 1000);
 
-	function hourUpdate() {
-		if (minutes === 0) {
-			hour += 1;
-			hour %= 24;
+	
+	//functions
+	function hoursUpdate() {
+		if (mins === 59 && secs === 0) {
+			hours += 1;
+			hours %= 24;
+			console.log("hours: ", hours);
 		}
-		var hours = 5;
-		var hourRotation = (5 / 12) * 360;
-		rotateHandbyDegree(hourHand, hourRotation);
+		var hourRotation = (hours / 12) * 360;
+		//rotateHandbyDegree(hourHand, hourRotation);
+		hourHand.style.transform = 'rotate(' + hourRotation + 'deg)';
 	}
-	function minuteUpdate() {
+	function minsUpdate() {
 		if (secs === 0) {
-			minutes += 1;
-			minutes %= 60;
-			console.log(minutes);
+			mins += 1;
+			mins %= 60;
+			console.log("mins: " + mins + "\nseconds: " + secs);
 		}
-		var minsRotation = (minutes * 6)% 360;
+		var minsRotation = (mins * 6) % 360;
 		rotateHandbyDegree(minsHand, minsRotation);
 	}
 	function secsRotation() {
@@ -36,23 +43,19 @@ document.addEventListener("DOMContentLoaded", function() {
 		secs %= 60;
 	}
 	function checkUpdates() {
-		hourUpdate();
-		minuteUpdate();
+		hoursUpdate();
+		minsUpdate();
 		secsRotation();
 	}
 	function rotateHandbyDegree(hand, degree) {
 		hand.style.transform = 'rotate(' + degree + 'deg)';
 	}
-
+	function correctStartTimes() {
+		hoursUpdate();
+		minsUpdate();
+		secsRotation();
+	}
 });
-
-
-
-
-
-
-
-
 
 
 
