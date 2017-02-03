@@ -8,20 +8,16 @@ document.addEventListener("DOMContentLoaded", function() {
 	var secs = 55;
 	var mins = 59;
 	var hours = 9;
-
-	console.log("hours at start: ", hours);
 	
 	// set correct time per variables and updates every 1 second
 	correctStartTimes();
 	setInterval(checkUpdates, 1000);
 
-	
 	//functions
 	function hoursUpdate() {
 		if (mins === 59 && secs === 0) {
 			hours += 1;
 			hours %= 24;
-			console.log("hours: ", hours);
 		}
 		var hourRotation = (hours / 12) * 360;
 		//rotateHandbyDegree(hourHand, hourRotation);
@@ -31,7 +27,6 @@ document.addEventListener("DOMContentLoaded", function() {
 		if (secs === 0) {
 			mins += 1;
 			mins %= 60;
-			console.log("mins: " + mins + "\nseconds: " + secs);
 		}
 		var minsRotation = (mins * 6) % 360;
 		rotateHandbyDegree(minsHand, minsRotation);
