@@ -12,7 +12,7 @@
 }
 
 #second {
-
+	z-index: 1;
 }
 .position {
 	position: absolute;
